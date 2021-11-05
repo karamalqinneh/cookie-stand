@@ -1,47 +1,3 @@
-// let mountains = [
-//     { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
-//     { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
-//     { name: "Poggio Scali", height: 1520, place: "Parco Foreste Casentinesi" },
-//     { name: "Pratomagno", height: 1592, place: "Parco Foreste Casentinesi" },
-//     { name: "Monte Amiata", height: 1738, place: "Siena" }
-//   ];
-
-// function myCreateFunction() {
-//     let table = document.getElementById("myTable");
-//     let header = table.createTHead();
-//     let row = header.insertRow(0);
-//     let cell = row.insertCell(0);
-//     cell.innerHTML = "<b>This is a table header</b>";
-//   }
-
-
-
-//   function generateTableHead(table, data) {
-//     let thead = table.createTHead();
-//     let row = thead.insertRow();
-//     for (let key of data) {
-//       let th = document.createElement("th");
-//       let text = document.createTextNode(key);
-//       th.appendChild(text);
-//       row.appendChild(th);
-//     }
-//   }
-  
-//   function generateTable(table, data) {
-//     for (let element of data) {
-//       let row = table.insertRow();
-//       for (key in element) {
-//         let cell = row.insertCell();
-//         let text = document.createTextNode(element[key]);
-//         cell.appendChild(text);
-//       }
-//     }
-//   }
-  
-//   let table = document.querySelector("table");
-//   let data = Object.keys(mountains[0]);
-//   generateTableHead(table, data);
-//   generateTable(table, mountains);
 
 // define the working hours
 const workinghours = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
@@ -117,11 +73,18 @@ function instanceFiller(shops) {
     return filledData;
 }
 
-
-// const data = instanceFiller(shops)
-
-// console.log(data , 'dataa');
+let data = instanceFiller(shops)
 
 
-function staticDataFiller() {
+function staticDataFiller(data) {
+    let table = document.querySelector(".my-table");
+    for (let i = 0; i < data.length; i++) {
+        let row = table.insertRow();
+        for (let j = 0; j < data[i].length; j++) {
+            let cell = row.insertCell();
+            cell.innerHTML = `${data[i][j]}`;
+        }
+        
+    }
 }
+staticDataFiller(data);
