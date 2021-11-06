@@ -16,18 +16,18 @@ class Shop {
         this.avgCookiePerHourArr = [];
     }
     fillCusPerHour() {
-        for (let i = 0; i <= workinghours.length; i++) {
+        for (let i = 0; i < workinghours.length; i++) {
             this.cusPerHour.push(Math.floor(Math.random() * (this.maxCus - this.minCus) + this.minCus))
         }
     } s
     addSales() {
         for (let i = 0; i <  this.cusPerHour.length; i++) {
-            this.avgCookiePerHourArr[i] = this.avgPerCus * this.cusPerHour[i];
+            this.avgCookiePerHourArr[i] = Math.floor(this.avgPerCus * this.cusPerHour[i]);
         }
     }
     total() {
         let totalShopSales = 0;
-        for (let i = 0; i <= this.avgCookiePerHourArr.length; i++) {
+        for (let i = 0; i < this.avgCookiePerHourArr.length; i++) {
             totalShopSales += this.avgCookiePerHourArr[i];
         }
         return totalShopSales;
@@ -36,13 +36,18 @@ class Shop {
 
 
 
+
 // create the column headings t
 function headingCreator() {
     let table = document.querySelector(".my-table");
     let header = table.createTHead();
+    // header.classlist.add("table-header")
     let row = header.insertRow();
+  //  row.classlist.add("table-row")
+
     for (let i = 0; i < workinghours.length; i++) {
         let cell = row.insertCell(i);
+         //  // cell.classlist.add("table-data")
         cell.innerHTML = `${workinghours[i]}`;
     }
 }
@@ -72,6 +77,7 @@ function instanceFiller(shops) {
     }
     for (let i = 0; i < filledData.length; i++){
         filledData[i].unshift(shops[i].name);
+        filledData[i].pop()
     }
 
     return filledData;
@@ -83,8 +89,10 @@ function staticDataFiller(data) {
     let table = document.querySelector(".my-table");
     for (let i = 0; i < data.length; i++) {
         let row = table.insertRow();
+      //  row.classlist.add("table-row")
         for (let j = 0; j < data[i].length; j++) {
             let cell = row.insertCell();
+             //  // cell.classlist.add("table-data")
             cell.innerHTML = `${data[i][j]}`;
         }
         
@@ -106,9 +114,13 @@ function collectData(event) {
     newShop.fillCusPerHour();
     newShop.addSales();
     let newData = newShop.avgCookiePerHourArr;
+    console.log(newData)
     let table = document.querySelector(".my-table");
     let row = table.insertRow();
+  //  row.classlist.add("table-row")
+
     let cell = row.insertCell();
+     //  // cell.classlist.add("table-data")
     cell.innerHTML = `${newShop.name}`
     for (let i = 0; i < newData.length; i++) {
         let cell = row.insertCell();

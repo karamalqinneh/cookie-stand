@@ -4,33 +4,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/css/style-become.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Become A Partner</title>
 </head>
 <body>
-    <main>
-        <form action="" id="ShopsForm">
-            <div class="textfield">
-                Please Fill the form in order to add your Shop to the sales list
-            </div>
-            <fieldset>
-                <label for="ShopName">New Shop Name</label>
-                <input type="text" id="shopName" name="ShopName">
-                <br>
-                <label for="minCus">Minimun Customers</label>
-                <input type="text" id="minCus" name="minCus">
-                <br>
-                <label for="maxCus"> Max Customers</label>
-                <input type="text" id="maxCus" name="maxCus">
-                <br>
-                <label for="AvgCookie">Avg Cookies per customer</label>
-                <input type="text" id="avgCookie" name="AvgCookie">
-                <br>
-                <button type="submit" id= "addShop" value="AddShop" onclick="collectEvent(event)">Add Your Shop</button>
-            </fieldset>
+    <header>
+        <div class="logo" href="#"><i class="fas fa-cookie-bite"></i>Cookie Stand</div>
+        <nav class="navbar">
+            <a href="#">About Us</a>
+            <a href="/pages/become-partner.html">Become A Partner</a>
+        </nav>
+    </header>
+    <div class="content-wrap">
+        <main>
+             <form action="" id="ShopsForm">
+                 <div class="textfield">
+                        Please Fill the form in order to add your Shop to the sales list
+                  </div>
+                 <fieldset>
+                    <label for="ShopName">New Shop Name</label>
+                    <input type="text" id="shopName" name="ShopName">
+                      <br>
+                    <label for="minCus">Minimun Customers</label>
+                    <input type="text" id="minCus" name="minCus">
+                      <br>
+                    <label for="maxCus"> Max Customers</label>
+                    <input type="text" id="maxCus" name="maxCus">
+                      <br>
+                    <label for="AvgCookie">Avg Cookies per customer</label>
+                    <input type="text" id="avgCookie" name="AvgCookie">
+                      <br>
+                    <button type="submit" id= "addShop" value="AddShop" onclick="collectEvent(event)">Add Your Shop</button>
+                    </fieldset>
 
-    <table class="my-table">
+            <table class="my-table">
 
-    </table>
+            </table>
+        </main>
+    </div>
+    <section class="footer">
+
+        <div class="share">
+            <a href="#" class="btn">facebook</a>
+            <a href="#" class="btn">twitter</a>
+            <a href="#" class="btn">instagram</a>
+            <a href="#" class="btn">pinterest</a>
+            <a href="#" class="btn">linkedin</a>
+        </div>
+    
+        <h1 class="credit"> created by <span> Karam Al-Qinneh </span></h1>
+    
+    </section>
     <script src="/js/app.js"></script>
 </body>
 </html>
