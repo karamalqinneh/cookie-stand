@@ -1,6 +1,7 @@
 
-// define the working hours
-const workinghours = ["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+// define the vars
+const workinghours = ["", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+
 
 
 
@@ -63,18 +64,20 @@ let shops = [paris , newYork , amesterdam , texas , london];
 
 function instanceFiller(shops) {
     let filledData = [];
-    console.log(shops[0])
     for (let i = 0; i < shops.length; i++){
-        console.log(i)
        shops[i].fillCusPerHour()
        shops[i].addSales()
+    //    filledData.shift(shops[i].name)
        filledData.push(shops[i].avgCookiePerHourArr)
     }
+    for (let i = 0; i < filledData.length; i++){
+        filledData[i].unshift(shops[i].name);
+    }
+
     return filledData;
 }
 
 let data = instanceFiller(shops)
-
 
 function staticDataFiller(data) {
     let table = document.querySelector(".my-table");
@@ -88,3 +91,33 @@ function staticDataFiller(data) {
     }
 }
 staticDataFiller(data);
+
+// collect the shops data
+
+const addShop = document.querySelector("#addShop")
+
+function collectData(event) {
+    event.preventDefault();
+    let shopName = document.querySelector("#shopName");
+    let minInput = document.querySelector("#minCus");
+    let maxInput = document.querySelector("#maxCus");
+    let avgInput = document.querySelector("#avgCookie");
+    let newShop = new Shop (shopName.value, minInput.value, maxInput.value, avgInput.value)
+    newShop.fillCusPerHour();
+    newShop.addSales();
+    let newData = newShop.avgCookiePerHourArr;
+    let table = document.querySelector(".my-table");
+    let row = table.insertRow();
+    let cell = row.insertCell();
+    cell.innerHTML = `${newShop.name}`
+    for (let i = 0; i < newData.length; i++) {
+        let cell = row.insertCell();
+        cell.innerHTML = `${newData[i]}`;
+    }
+
+}
+
+addShop.addEventListener("click", collectData)
+
+
+
